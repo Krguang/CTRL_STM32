@@ -75,11 +75,11 @@ void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(run_GPIO_Port, run_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, relay_beiyong_Pin|relay_chouyang_Pin|relay_guanpian_Pin|relay_shuzhong_Pin 
+  HAL_GPIO_WritePin(GPIOB, relay_beiyong_Pin|relay_chouyang_Pin|relay_shuzhong_Pin|relay_guanpian_Pin 
                           |relay_wuying_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PEPin PEPin PEPin PEPin */
-  GPIO_InitStruct.Pin = io_in_xiaofang_Pin|io_in_huozai_Pin|io_in_beiyong1_Pin|io_in_beiyong2_Pin;
+  GPIO_InitStruct.Pin = io_in_geli_Pin|io_in_huozai_Pin|io_in_beiyong1_Pin|io_in_beiyong2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
@@ -92,7 +92,7 @@ void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : PBPin PBPin PBPin PBPin 
                            PBPin */
-  GPIO_InitStruct.Pin = relay_beiyong_Pin|relay_chouyang_Pin|relay_guanpian_Pin|relay_shuzhong_Pin 
+  GPIO_InitStruct.Pin = relay_beiyong_Pin|relay_chouyang_Pin|relay_shuzhong_Pin|relay_guanpian_Pin 
                           |relay_wuying_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

@@ -108,6 +108,7 @@ int main(void)
   MX_IWDG_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
   __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);    //Ê¹ÄÜ¿ÕÏÐÖÐ¶Ï
 
@@ -121,7 +122,6 @@ int main(void)
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
-
 
 
   /* USER CODE END 2 */

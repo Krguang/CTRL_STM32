@@ -100,7 +100,7 @@ static void ModbusDecode(unsigned char *MDbuf, unsigned char len) {
 	MDbuf[len++] = crc & 0xFF;		//CRC低字节
 	MDbuf[len++] = crc >> 8;		//CRC高字节
 	HAL_UART_Transmit(&huart1, MDbuf, len, 0xff);	//发送返回帧
-	HAL_GPIO_TogglePin(relay_beiyong_GPIO_Port, relay_beiyong_Pin);
+	HAL_GPIO_TogglePin(led_connect_GPIO_Port, led_connect_Pin);
 }
 
 void modbusPoll() {

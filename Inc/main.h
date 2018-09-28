@@ -49,8 +49,8 @@
 
 /* Private define ------------------------------------------------------------*/
 
-#define io_in_xiaofang_Pin GPIO_PIN_7
-#define io_in_xiaofang_GPIO_Port GPIOE
+#define io_in_geli_Pin GPIO_PIN_7
+#define io_in_geli_GPIO_Port GPIOE
 #define io_in_huozai_Pin GPIO_PIN_8
 #define io_in_huozai_GPIO_Port GPIOE
 #define io_in_beiyong1_Pin GPIO_PIN_9
@@ -65,10 +65,10 @@
 #define relay_beiyong_GPIO_Port GPIOB
 #define relay_chouyang_Pin GPIO_PIN_4
 #define relay_chouyang_GPIO_Port GPIOB
-#define relay_guanpian_Pin GPIO_PIN_5
-#define relay_guanpian_GPIO_Port GPIOB
-#define relay_shuzhong_Pin GPIO_PIN_6
+#define relay_shuzhong_Pin GPIO_PIN_5
 #define relay_shuzhong_GPIO_Port GPIOB
+#define relay_guanpian_Pin GPIO_PIN_6
+#define relay_guanpian_GPIO_Port GPIOB
 #define relay_wuying_Pin GPIO_PIN_7
 #define relay_wuying_GPIO_Port GPIOB
 
