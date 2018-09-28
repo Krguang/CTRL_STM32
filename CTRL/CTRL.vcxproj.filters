@@ -180,5 +180,13 @@
     <None Include="stm32.xml">
       <Filter>VisualGDB settings</Filter>
     </None>
+    <ClCompile Include="modbusSlave.c">
+      <Filter>Source files\Application\User</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Inc\modbusSlave.h">
+      <Filter>Header files\Application\User</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -48,7 +48,7 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "modbusSlave.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -108,12 +108,20 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
+  __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);    //Ê¹ÄÜ¿ÕÏÐÖÐ¶Ï
+
+  //HAL_ADCEx_Calibration_Start(&hadc1);
+  //HAL_ADC_Start_DMA(&hadc1, (uint32_t *)ADC_ConvertedValue, 10);
+  //HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
+  //HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
 
   HAL_TIM_Base_Start_IT(&htim4);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
+
+
 
   /* USER CODE END 2 */
 
@@ -125,7 +133,7 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-
+	  modbusPoll();
   }
   /* USER CODE END 3 */
 
@@ -195,9 +203,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if (htim == &htim4)
 	{
-		HAL_GPIO_TogglePin(relay_beiyong_GPIO_Port, relay_beiyong_Pin);
+		
 		HAL_IWDG_Refresh(&hiwdg);
-		printf("Blocking command line pushes that expose your personal email address\n");
+		//printf("Blocking command line pushes that expose your personal email address\n");
 		
 	}
 }

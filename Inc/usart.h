@@ -55,6 +55,17 @@ extern UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN Private defines */
 
+#define BUFFER_SIZE 256
+
+extern uint8_t uart1_recv_end_flag;
+
+struct buffer {									//定义接收缓存结构体
+	uint8_t BufferArray[BUFFER_SIZE];
+	uint16_t BufferLen;
+};
+
+extern struct buffer Usart1ReceiveBuffer;
+
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);
