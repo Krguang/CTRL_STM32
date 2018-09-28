@@ -81,7 +81,9 @@ static void switchInCollect() {
 
 static void relayControl() {
 
-	if (1 == localArray[16]&1)
+	int relayTemp = localArray[16];
+
+	if (1 == (relayTemp & 1))
 	{
 		HAL_GPIO_WritePin(relay_wuying_GPIO_Port, relay_wuying_Pin,GPIO_PIN_SET);
 	}
@@ -89,7 +91,7 @@ static void relayControl() {
 		HAL_GPIO_WritePin(relay_wuying_GPIO_Port, relay_wuying_Pin, GPIO_PIN_RESET);
 	}
 
-	if (1 == (localArray[16]>>1) & 1)
+	if (1 == ((relayTemp >>1) & 1))
 	{
 		HAL_GPIO_WritePin(relay_guanpian_GPIO_Port, relay_guanpian_Pin, GPIO_PIN_SET);
 	}
@@ -97,7 +99,7 @@ static void relayControl() {
 		HAL_GPIO_WritePin(relay_guanpian_GPIO_Port, relay_guanpian_Pin, GPIO_PIN_RESET);
 	}
 
-	if (1 == (localArray[16] >> 2) & 1)
+	if (1 == ((relayTemp >> 2) & 1))
 	{
 		HAL_GPIO_WritePin(relay_shuzhong_GPIO_Port, relay_shuzhong_Pin, GPIO_PIN_SET);
 	}
@@ -105,7 +107,7 @@ static void relayControl() {
 		HAL_GPIO_WritePin(relay_shuzhong_GPIO_Port, relay_shuzhong_Pin, GPIO_PIN_RESET);
 	}
 
-	if (1 == (localArray[16] >> 3) & 1)
+	if (1 == ((relayTemp >> 3) & 1))
 	{
 		HAL_GPIO_WritePin(relay_chouyang_GPIO_Port, relay_chouyang_Pin, GPIO_PIN_SET);
 	}
@@ -113,7 +115,7 @@ static void relayControl() {
 		HAL_GPIO_WritePin(relay_chouyang_GPIO_Port, relay_chouyang_Pin, GPIO_PIN_RESET);
 	}
 
-	if (1 == (localArray[16] >> 4) & 1)
+	if (1 == ((relayTemp >> 4) & 1))
 	{
 		HAL_GPIO_WritePin(relay_beiyong_GPIO_Port, relay_beiyong_Pin, GPIO_PIN_SET);
 	}
