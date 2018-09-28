@@ -68,6 +68,7 @@ void SystemClock_Config(void);
 
 /* USER CODE BEGIN 0 */
 
+
 /* USER CODE END 0 */
 
 /**
@@ -103,7 +104,7 @@ int main(void)
   MX_ADC1_Init();
   MX_USART1_UART_Init();
   MX_DAC_Init();
- // MX_IWDG_Init();
+  MX_IWDG_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
@@ -195,7 +196,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	if (htim == &htim4)
 	{
 		HAL_GPIO_TogglePin(relay_beiyong_GPIO_Port, relay_beiyong_Pin);
-	//	HAL_IWDG_Refresh(&hiwdg);
+		HAL_IWDG_Refresh(&hiwdg);
+		printf("Blocking command line pushes that expose your personal email address\n");
+		
 	}
 }
 /* USER CODE END 4 */
