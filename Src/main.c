@@ -103,9 +103,16 @@ int main(void)
   MX_ADC1_Init();
   MX_USART1_UART_Init();
   MX_DAC_Init();
-  MX_IWDG_Init();
+ // MX_IWDG_Init();
   MX_TIM3_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
+
+  HAL_TIM_Base_Start_IT(&htim4);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
 
   /* USER CODE END 2 */
 
@@ -183,7 +190,14 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim == &htim4)
+	{
+		HAL_GPIO_TogglePin(relay_beiyong_GPIO_Port, relay_beiyong_Pin);
+	//	HAL_IWDG_Refresh(&hiwdg);
+	}
+}
 /* USER CODE END 4 */
 
 /**
