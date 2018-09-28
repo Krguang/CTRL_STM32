@@ -183,9 +183,15 @@
     <ClCompile Include="modbusSlave.c">
       <Filter>Source files\Application\User</Filter>
     </ClCompile>
+    <ClCompile Include="..\Src\dataProcessing.c">
+      <Filter>Source files\Application\User</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Inc\modbusSlave.h">
+      <Filter>Header files\Application\User</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Inc\dataProcessing.h">
       <Filter>Header files\Application\User</Filter>
     </ClInclude>
   </ItemGroup>

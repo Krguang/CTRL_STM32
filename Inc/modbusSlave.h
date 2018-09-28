@@ -4,8 +4,7 @@
 #include "stm32f1xx_hal.h"
 #include "main.h"
 
-uint16_t LocalStatusArray[];
-uint16_t localData[];
+uint16_t localArray[255];
 void modbusPoll();
 
 

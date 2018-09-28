@@ -73,6 +73,7 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\Inc\dataProcessing.h" />
     <ClInclude Include="..\Inc\modbusSlave.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
@@ -80,6 +81,7 @@
   </ImportGroup>
   <ItemGroup />
   <ItemGroup>
+    <ClCompile Include="..\Src\dataProcessing.c" />
     <ClCompile Include="..\Src\gpio.c" />
     <ClCompile Include="..\Src\stm32f1xx_hal_msp.c" />
     <ClCompile Include="..\Src\dac.c" />
