@@ -43,38 +43,38 @@ static void switchInCollect() {
 
 	if (1 == HAL_GPIO_ReadPin(io_in_geli_GPIO_Port,io_in_geli_Pin))
 	{
-		localArray[0] |= 1;
+		localArray[0] &= ~1;
 	}
 	else
 	{
-		localArray[0] &= ~1;
+		localArray[0] |= 1;
 	}
 
 	if (1 == HAL_GPIO_ReadPin(io_in_huozai_GPIO_Port, io_in_huozai_Pin))
 	{
-		localArray[0] |= 1<<1;
+		localArray[0] &= ~(1 << 1);
 	}
 	else
 	{
-		localArray[0] &= ~(1<<1);
+		localArray[0] |= 1 << 1;
 	}
 	 
 	if (1 == HAL_GPIO_ReadPin(io_in_beiyong1_GPIO_Port, io_in_beiyong1_Pin))
 	{
-		localArray[0] |= 1 << 2;
+		localArray[0] &= ~(1 << 2);
 	}
 	else
 	{
-		localArray[0] &= ~(1 << 2);
+		localArray[0] |= 1 << 2;
 	}
 
 	if (1 == HAL_GPIO_ReadPin(io_in_beiyong2_GPIO_Port, io_in_beiyong2_Pin))
 	{
-		localArray[0] |= 1 << 3;
+		localArray[0] &= ~(1 << 3);
 	}
 	else
 	{
-		localArray[0] &= ~(1 << 3);
+		localArray[0] |= 1 << 3;
 	}
 
 }
