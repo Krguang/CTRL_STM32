@@ -31,7 +31,7 @@ static void gasCollect() {
 		else
 		{
 			gasTemp[i] = (uint16_t)(ADC_Average[i] / 100 * 1000 / 4096);
-			localArray[i + 1] = gasTemp[i];
+			localArray[i - 6] = gasTemp[i];
 		}
 
 		ADC_Average[i] = 0;
