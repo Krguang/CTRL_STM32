@@ -3,6 +3,7 @@
 #include "adc.h"
 #include "usart.h"
 #include "dac.h"
+#include "tim.h"
 
 static void adcCollect() {
 
@@ -127,7 +128,7 @@ static void relayControl() {
 
 static void dacOutput() {
 
-	switch (localArray[17])
+	switch (localArray[18])
 	{
 	case 0: HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, 0);//0V
 		break;
@@ -156,7 +157,7 @@ static void dacOutput() {
 		break;
 	}
 
-	switch (localArray[18])
+	switch (localArray[17])
 	{
 	case 0: HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R, 0);//0V
 		break;
@@ -187,6 +188,25 @@ static void dacOutput() {
 
 }
 
+static void user_pwm_setvalue(uint16_t value,uint32_t tim_channel)
+{
+	TIM_OC_InitTypeDef sConfigOC;
+
+	sConfigOC.OCMode = TIM_OCMODE_PWM1;
+	sConfigOC.Pulse = value;
+	sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+	sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+	HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, tim_channel);
+	HAL_TIM_PWM_Start(&htim3, tim_channel);
+}
+
+static void pwmOutput() {
+
+	user_pwm_setvalue(localArray[19], TIM_CHANNEL_1);
+	user_pwm_setvalue(localArray[20], TIM_CHANNEL_2);
+	user_pwm_setvalue(localArray[21], TIM_CHANNEL_3);
+	user_pwm_setvalue(localArray[22], TIM_CHANNEL_4);
+}
 
 void dataProcessing() {
 
@@ -194,4 +214,5 @@ void dataProcessing() {
 	switchInCollect();
 	relayControl();
 	dacOutput();
+	pwmOutput();
 }
