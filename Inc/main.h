@@ -61,6 +61,8 @@
 #define led_connect_GPIO_Port GPIOA
 #define run_Pin GPIO_PIN_11
 #define run_GPIO_Port GPIOA
+#define beep_Pin GPIO_PIN_0
+#define beep_GPIO_Port GPIOD
 #define relay_beiyong_Pin GPIO_PIN_3
 #define relay_beiyong_GPIO_Port GPIOB
 #define relay_chouyang_Pin GPIO_PIN_4

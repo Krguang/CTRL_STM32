@@ -123,7 +123,17 @@ static void relayControl() {
 	else {
 		HAL_GPIO_WritePin(relay_beiyong_GPIO_Port, relay_beiyong_Pin, GPIO_PIN_RESET);
 	}
+
+	if (1 == ((relayTemp >> 5) & 1))
+	{
+		HAL_GPIO_WritePin(beep_GPIO_Port, beep_Pin, GPIO_PIN_SET);
+	}
+	else {
+		HAL_GPIO_WritePin(beep_GPIO_Port, beep_Pin, GPIO_PIN_RESET);
+	}
 }
+
+
 
 
 static void dacOutput() {
